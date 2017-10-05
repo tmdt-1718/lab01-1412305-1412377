@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function(){
+    $("#btn-collapse").click(function(){
+        $("#sidebar").css("display", "none");
+    });
+    $("#btn-open").click(function(){
+        $("#sidebar").css("display", "block");
+    });
+});

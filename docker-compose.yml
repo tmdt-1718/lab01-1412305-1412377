@@ -11,6 +11,4 @@ services:
       - db
   db:
     image: postgres
-    environment: 
-      - POSTGRES_PASSWORD=gnoul256
-      - POSTGRES_USER=luongbc
+  
