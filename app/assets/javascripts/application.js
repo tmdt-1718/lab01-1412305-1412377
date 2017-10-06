@@ -21,4 +21,5 @@ $(function(){
     $("#btn-open").click(function(){
         $("#sidebar").css("display", "block");
     });
+
 });

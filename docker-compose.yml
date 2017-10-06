@@ -7,8 +7,14 @@ services:
     volumes: 
       - .:/lab01
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    depends_on:
+    links: 
       - db
+    environment: 
+      - DATABASE_URL=postgres://eacjtmkw:oCoeOUCk0PPmelUkeCIQdKaeHaUsFZh_@stampy.db.elephantsql.com:5432/eacjtmkw
   db:
     image: postgres
+    environment:
+      - POSTGRES_USER=lab01
+      - POSTGRES_PASSWORD=123
+
   

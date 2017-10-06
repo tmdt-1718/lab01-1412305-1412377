@@ -21,7 +21,7 @@
         </a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -35,29 +35,48 @@
               <a class="nav-link" href="/about">About</a>
             </li>
           </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">
+                <span class="glyphicons glyphicons-log-in"></span>
+                Register
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/articles">Login</a>
+            </li>
+        </ul>
         </div>
         
       </div>
     </nav>
-
-    <div class="w3-sidebar w3-bar-block w3-collapse w3-blue" style="width:200px" id="sidebar"> 
-      <button class="w3-bar-item w3-button w3-large w3-hide-large" id="btn-collapse">Close</button>
-      <a href="#" class="w3-bar-item w3-button">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+            <nav class="nav bg-dark navbar-dark navbar-expand-md sidebar">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarWEX" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse flex-column mt-md-0 mt-4 pt-md-0 pt-4" id="navbarWEX">
+                    <a href="" class="nav-link">Test</a>
+                    <a href="" class="nav-link">Test</a>
+                    <a href="" class="nav-link">Test</a>
+                    <a href="" class="nav-link">Test</a>
+                    <a href="" class="nav-link">Test</a>
+                </div>
+            </nav>
+        </div>
+        <div class="col-6 col-sm-9 col-md-9 col-lg-10 col-xl-10">
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    
-    <button class="w3-button w3-blue w3-xlarge" id="btn-open">
-      &#9776;
-    </button>
 
-    <div class="container" style="margin-left:200px">
-      <%= yield %>
-    </div>
     
     <footer class="footer fixed-bottom navbar bg-dark">
       <div class="container">
-        <p>© 1412305-1412377</p>
+        <p class="text-secondary">© 1412305-1412377</p>
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
