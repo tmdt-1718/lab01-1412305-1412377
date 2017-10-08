@@ -11,10 +11,10 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title"><%= article.title %></h4>
-                    <p class="card-text"><%= article.content %></p>
+                    <p class="card-text text-truncate"><%= article.content %></p>
                     <div class="text-right">
                         <p class="card-text float-left d-inline-block"><small class="text-muted">View: <%= article.view %></small></p>             
-                        <a class="card-link" href="/#">Read more &#8594;</a>      
+                        <a data-view="<%= article.view %>" id="article" class="card-link" href="/articles/<%= article.id %>">Read more &#8594;</a>      
                     </div>
                 </div>
             </div>
