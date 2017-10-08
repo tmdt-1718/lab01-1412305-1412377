@@ -22,4 +22,8 @@ $(function(){
         $("#sidebar").css("display", "block");
     });
 
+    $('li > a.nav-link').click(function(){
+        $("ul .navbar-nav").find(".active").removeClass("active");
+        $(this).parent().addClass("active");
+    });
 });
