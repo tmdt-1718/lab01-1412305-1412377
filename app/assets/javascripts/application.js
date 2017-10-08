@@ -26,4 +26,17 @@ $(function(){
         $("ul .navbar-nav").find(".active").removeClass("active");
         $(this).parent().addClass("active");
     });
+
+    $('a#article').on('click', function(){
+       
+        $.ajax({
+            url: window.location.origin + $(this).attr('href'),
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            method: 'PUT',
+            data: { view: parseInt($(this).attr('data-view'), 10) + 1 },
+            success: function(data){
+                console.log('done');
+            }
+        })
+    });
 });
