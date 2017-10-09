@@ -1,1 +1,53 @@
-<h1> About</h1>
+<div class="row">  
+    <div class="col-3 mx-auto mt-4">
+        <h3 class="text-muted">About</h3>
+            <div class="card border-info" >
+            <img class="card-img-top" width="100" height="300" src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.0-9/19732200_1391728900948532_591021405523445345_n.jpg?_nc_eui2=v1%3AAeFupq20tCjK8rtibLpPx_3dVc4V-5Nfi6morcFKY7Y0YmP9reWBVXzen7B8-l1JXMZiMew1RJHGtt1-nayRtO6q0d89LfGf4uJYhJhLARdmJg&oh=db95004fd468493a94da27777ca4eca4&oe=5A7A7E07"/>
+                <div class="card-body">
+                    <h5 class="text-info card-title">
+                        Bùi Châu Lượng
+                    </h5>
+                    <p class="card-subtitle">1412305</p>
+                </div>
+            </div>
+    </div>
+    <div class="col-3 mx-auto mt-4">
+    <h3 class="text-muted">About</h3>
+        <div class="card border-info" >
+        <img class="card-img-top" width="100" height="300" src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.0-0/p206x206/18033831_1820294238289914_2454216832054277290_n.jpg?_nc_eui2=v1%3AAeFHHfsaA_IwAejLhPDaTNsWP_-8dy8XC99pDSZGWeXP122fZQyCMUtlK1u8yySjXStapoDWIxCcetBBhPn6F1yxXMwkcktFyFECgCN60nXiSA&oh=b1132bdca041d7fd89517e9099fd25e0&oe=5A867500"/>
+            <div class="card-body">
+                <h5 class="text-info card-title">
+                    Nguyễn Tài Nhật
+                </h5>
+                <p class="card-subtitle">1412377</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div id='map' class="col-9 mx-auto"></div>
+</div>
+
+<script>
+function initMap() {
+  var address_1412377 = {lat: 10.844195, lng: 106.727503};
+  var address_1412305 = {lat: 10.828656, lng: 106.711887};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: address_1412305
+  });
+  var marker = new google.maps.Marker({
+    position: address_1412377,
+    label: '1412377',
+    map: map
+  });
+  var marker = new google.maps.Marker({
+    position: address_1412305,
+    label: '1412305',
+    map: map
+  });
+}
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnF0buieRsLeqjoFavNOW5Sp2VVGaOZvw&callback=initMap">
+</script>

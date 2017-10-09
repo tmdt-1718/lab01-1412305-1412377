@@ -1,0 +1,18 @@
+<div class="pt-3 pb-3 pl-3 pr-3 bg-light">
+    <div class="container-fluid">
+        <div class="row mb-3">
+        <% @albums.each do |album| %>
+            <div class="col-4 mb-3">
+                <div class="card">
+                    <a href="/albums/<%= album.id %>">
+                        <img height="280" width="100%" src= <%= album.url %> />
+                    </a>
+                    <div class="card-body">
+                        <p class="pull-left text-muted">Views: <%= album.view %> </p>
+                        <p class="pull-right">Created by <%= User.find_by_id(album.user_id).name %></p>  
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

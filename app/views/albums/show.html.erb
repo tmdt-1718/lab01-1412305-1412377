@@ -1,0 +1,15 @@
+<div class="pt-3 pb-3 pl-3 pr-3 bg-light">
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <% @images.each do |image| %>
+            <div class="col-3">
+                <img class="img-thumbnail" src= <%= image.url %> />
+                <div class="border border-info">
+                    <p class="pull-left text-muted">View: <%= image.view %> </p>
+                    <p class="pull-right text-info">Uploaded by <%= User.find_by_id(image.user_id).name %> </p>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
