@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
 
-  <body>  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <body class="bg-light">  
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,54 +21,78 @@
         </a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+          <ul class="navbar-nav nav mr-auto">
+            <li class="nav-item <%= 'active' if params[:controller] == 'home' %>">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%= 'active' if params[:controller] == 'articles' %>">
               <a class="nav-link" href="/articles">Blog</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%= 'active' if params[:controller] == 'albums' %>">
               <a class="nav-link" href="/albums">Albums</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%= 'active' if params[:controller] == 'about' %>">
               <a class="nav-link" href="/about">About</a>
             </li>
           </ul>
 
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">
-                <span class="glyphicons glyphicons-log-in"></span>
-                Register
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/articles">Login</a>
-            </li>
+          <ul class="navbar-nav nav ml-auto">
+           
+            <% if logged_in? %>
+                <li class="nav-item">               
+                  <a class="nav-link" href=<%= logout_path%>> 
+                    Hi, <%= User.find_by_id(session[:user_id]).name %>   
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>             
+                  </a>
+                </li>
+            <% else %>
+              <li class="nav-item">
+                  <a class="nav-link" href=<%= signup_path%>> 
+                    <i class="fa fa-user-secret" aria-hidden="true"></i>
+                    Sign up
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href=<%= login_path%>> 
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    Login
+                  </a>
+              </li>      
+            <% end %>
+             
         </ul>
         </div>
         
       </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid pl-0 pr-0">
       <div class="row">
-        <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2">
-            <nav class="nav bg-dark navbar-dark navbar-expand-md sidebar">
+        <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2  ">
+            <nav class="nav navbar-light navbar-expand-md sidebar ">
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarWEX" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse flex-column mt-md-0 mt-4 pt-md-0 pt-4" id="navbarWEX">
-                    <a href="" class="nav-link">Test</a>
-                    <a href="" class="nav-link">Test</a>
-                    <a href="" class="nav-link">Test</a>
-                    <a href="" class="nav-link">Test</a>
-                    <a href="" class="nav-link">Test</a>
+                <div class="navbar-collapse collapse flex-column mt-md-0 mt-4 pt-md-0 pt-4 left-menu" id="navbarWEX">
+                    <a href="/">
+                      <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                    <a href="/articles/new" class="nav-link">New article</a>
+                    <a href="#" class="nav-link">Help</a>
                 </div>
             </nav>
         </div>
         <div class="col-6 col-sm-9 col-md-9 col-lg-10 col-xl-10">
-          <%= yield %>
+          <div class="jumpbotron">
+            <div class="img"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                      <%= yield %>
+                    </div>
+                </div>
+              </div>
+              </div>
+         
         </div>
       </div>
     </div>
@@ -79,8 +103,13 @@
         <p class="text-secondary">© 1412305-1412377</p>
       </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/c30b914bf1.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+   
   </body>
 </html>

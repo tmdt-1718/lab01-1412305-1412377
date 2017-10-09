@@ -10,40 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006161102) do
+ActiveRecord::Schema.define(version: 20171007121857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "dblink"
-  enable_extension "xml2"
-  enable_extension "ltree"
-  enable_extension "pgstattuple"
-  enable_extension "tablefunc"
-  enable_extension "fuzzystrmatch"
-  enable_extension "citext"
-  enable_extension "uuid-ossp"
-  enable_extension "pgcrypto"
-  enable_extension "pg_trgm"
-  enable_extension "intarray"
-  enable_extension "hstore"
-  enable_extension "dict_int"
-  enable_extension "btree_gin"
-  enable_extension "pgrowlocks"
-  enable_extension "cube"
-  enable_extension "earthdistance"
-  enable_extension "btree_gist"
-  enable_extension "dict_xsyn"
-  enable_extension "unaccent"
-  enable_extension "pg_stat_statements"
-  enable_extension "plv8"
 
   create_table "articles", force: :cascade do |t|
-    t.string "user"
-    t.string "avatar"
+    t.string "title"
     t.string "content"
-    t.decimal "view"
+    t.string "avatar"
+    t.integer "view"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "users"
 end
